@@ -1,0 +1,12 @@
+##
+# TRANSMISSION CAPACITIES
+##
+
+# Maximum transmission line capacity is limited by factors like line length, design of cables, and others. Since data for Indonesian power system are limited,
+# we set transmission limits to 100000 and instead study where power flows in the system are highest.
+
+links:
+    # transmission
+    Aceh,Sumatera_Utara:
+        techs:
+            ac_transmission:
