@@ -1,0 +1,737 @@
+##
+# Scenarios are optional, named combinations of overrides
+##
+scenarios:
+    test: ["4H_resolution", "no_filler"]
+    resolution_test_1H: ["1H_resolution"]
+    resolution_test_2H: ["2H_resolution"]
+    resolution_test_3H: ["3H_resolution"]
+    resolution_test_4H: ["4H_resolution"]
+    resolution_test_6H: ["6H_resolution"]
+    resolution_test_8H: ["8H_resolution"]
+
+# Scenario A: Base Case (2021, 2030 and 2050 modeled for Base Demand, Capacity and Costs)
+    base_scenario_2021: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021"]
+    base_scenario_2030: ["demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030"]
+    base_scenario_2040: ["demand_2040", "base_scenario_capacity_max", "base_scenario_costs_2040"]
+    base_scenario_2050: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050"]
+
+    base_scenario_2030_V2: ["demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030_2"]
+    base_scenario_2040_V2: ["demand_2040", "base_scenario_capacity_max", "base_scenario_costs_2040_2"]
+    base_scenario_2050_V2_ref: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050_2_ref"]
+    base_scenario_2050_V2_min: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050_2_min"]
+
+    base_scenario_2021_CF2019: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "base_scenario_CF_2019"]
+    base_scenario_2030_CF2019: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "base_scenario_CF_2019"]
+    base_scenario_2050_CF2019: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "base_scenario_CF_2019"]
+
+    base_scenario_2021_Siemens_wind: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "base_scenario_CF_Siemens_2013"]
+
+# Scenario B: Cost Range Analysis
+    # FPV Cost Analysis
+    Scenario_B1-1_FPV_CAPEX_+20%_2021: ["demand_2021", "Scenario_B1-1_Costs_2021", "base_scenario_capacity_max"]
+    #Scenario_B1-1_FPV_CAPEX_+20%_2030: ["demand_2030", "Scenario_B1-1_Costs_2030", "base_scenario_capacity_max"]
+    Scenario_B1-1_FPV_CAPEX_+20%_2050: ["demand_2050", "Scenario_B1-1_Costs_2050", "base_scenario_capacity_max"]
+
+    Scenario_B1-2_FPV_CAPEX_-20%_2021: ["demand_2021", "Scenario_B1-2_Costs_2021", "base_scenario_capacity_max"]
+    #Scenario_B1-2_FPV_CAPEX_-20%_2030: ["demand_2030", "Scenario_B1-2_Costs_2030", "base_scenario_capacity_max"]
+    Scenario_B1-2_FPV_CAPEX_-20%_2050: ["demand_2050", "Scenario_B1-2_Costs_2050", "base_scenario_capacity_max"]
+
+    # OTEC Cost Analysis
+    Scenario_B2-1_OTEC_CAPEX_+20%_2021: ["demand_2021", "Scenario_B2-1_Costs_2021", "base_scenario_capacity_max"]
+    #Scenario_B2-1_OTEC_CAPEX_+20%_2030: ["demand_2030", "Scenario_B2-1_Costs_2030", "base_scenario_capacity_max"]
+    Scenario_B2-1_OTEC_CAPEX_+20%_2050: ["demand_2050", "Scenario_B2-1_Costs_2050", "base_scenario_capacity_max"]
+
+    Scenario_B2-2_OTEC_CAPEX_-20%_2021: [ "demand_2021", "Scenario_B2-2_Costs_2021", "base_scenario_capacity_max" ]
+    #Scenario_B2-2_OTEC_CAPEX_-20%_2030: [ "demand_2030", "Scenario_B2-2_Costs_2030", "base_scenario_capacity_max" ]
+    Scenario_B2-2_OTEC_CAPEX_-20%_2050: [ "demand_2050", "Scenario_B2-2_Costs_2050", "base_scenario_capacity_max" ]
+
+    Scenario_B3_2030: ["demand_2030", "Scenario_B3_Costs_2030", "base_scenario_capacity_max"]
+    Scenario_B3_2050: ["demand_2050", "Scenario_B3_Costs_2050", "base_scenario_capacity_max"]
+
+    # Battery Cost Analysis
+    Scenario_B4-1_Battery_CAPEX_+20%_2021:
+    #Scenario_B4-1_Battery_CAPEX_+20%_2030:
+    Scenario_B4-1_Battery_CAPEX_+20%_2050: ["demand_2050", "Scenario_B4-1_Costs_Battery_Capex_+20%_2050", "base_scenario_capacity_max"]
+
+    Scenario_B4-1_Battery_CAPEX_-20%_2021: ["demand_2021", "Scenario_B4-1_Costs_Battery_Capex_-20%_2021", "base_scenario_capacity_max"]
+    #Scenario_B4-1_Battery_CAPEX_-20%_2030:
+    Scenario_B4-1_Battery_CAPEX_-20%_2050: [ "demand_2050", "Scenario_B4-1_Costs_Battery_Capex_-20%_2050", "base_scenario_capacity_max" ]
+
+# Scenario: OTEC Plant size
+    Scenario_OTEC_10MW_2021: ["demand_2021", "base_scenario_capacity_max", "costs_OTEC_10MW_2021"]
+    Scenario_OTEC_10MW_2030: ["demand_2030", "base_scenario_capacity_max", ""]
+    Scenario_OTEC_10MW_2050: ["demand_2050", "base_scenario_capacity_max", "costs_OTEC_10MW_2050"]
+
+    Scenario_OTEC_40MW_2021: ["demand_2021", "base_scenario_capacity_max", "costs_OTEC_40MW_2021"]
+    Scenario_OTEC_40MW_2030: ["demand_2030", "base_scenario_capacity_max", ""]
+    Scenario_OTEC_40MW_2050: ["demand_2050", "base_scenario_capacity_max", "costs_OTEC_40_2050"]
+
+    Scenario_OTEC_80MW_2021: [ "demand_2021", "base_scenario_capacity_max", "costs_OTEC_80MW_2021" ]
+    Scenario_OTEC_80MW_2030: [ "demand_2030", "base_scenario_capacity_max", "" ]
+    Scenario_OTEC_80MW_2050: [ "demand_2050", "base_scenario_capacity_max", "costs_OTEC_80MW_2050" ]
+
+# Scenario C: Capacity Limitation / Technical Limitation
+    Scenario_C1_zero_OTEC_2021: ["demand_2021", "base_scenario_costs_2021", "Scenario_C1_zero_OTEC_capacity_max"]
+    Scenario_C1_2030: ["demand_2030", "base_scenario_costs_2030", "Scenario_C1_capacity_max"]
+    Scenario_C1_zero_OTEC_2050: ["demand_2050", "base_scenario_costs_2050", "Scenario_C1_zero_OTEC_capacity_max"]
+
+    Scenario_C2_Land_5%_2021: ["demand_2021", "", "base_scenario_costs_2021"]
+    Scenario_C2_Land_5%_2030: ["demand_2030", "", "base_scenario_costs_2030"]
+    Scenario_C2_Land_5%_2050: ["demand_2050", "capacity_max_C2_Land_5%", "base_scenario_costs_2050"]
+
+    Scenario_C2_Land_15%_2021: [ "demand_2021", "", "base_scenario_costs_2021" ]
+    Scenario_C2_Land_15%_2030: [ "demand_2030", "", "base_scenario_costs_2030" ]
+    Scenario_C2_Land_15%_2050: [ "demand_2050", "capacity_max_C2_Land_15%", "base_scenario_costs_2050" ]
+
+# Scenario D: Fossil Fuels included
+    Scenario_D_FF_zero_by2050_2021: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "Scenario_D_fossil_fuel_capacity_2021"]
+    Scenario_D_2030: ["demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030", "Scenario_D_fossil_fuel_capacity_2030"]
+    Scenario_D_2050: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050", "Scenario_D_fossil_fuel_capacity_2050"]
+
+    Scenario_20%_FF_2050: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050", "capacity_max_20%_fossil_fuels_2050"]
+
+    Scenario_D0_no_restr_2021: [ "demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "Scenario_D0_fossil_fuel_capacity_2021" ]
+    Scenario_D0_no_restr_2030: [ "demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030", "Scenario_D0_fossil_fuel_capacity_2030" ]
+    Scenario_D0_no_restr_2050: [ "demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050", "Scenario_D0_fossil_fuel_capacity_2050" ]
+
+# Scenario E: Average CF
+    Scenario_E_2021: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "Scenario_E_CF"]
+    Scenario_E_2030: ["demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030", "Scenario_E_CF"]
+    Scenario_E_2050: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050", "Scenario_E_CF"]
+
+# Scenario Max and Min Wind & Solar CF
+    Scenario_CF_max_2021: ["demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "CF_Wind_Solar_max"]
+    Scenario_CF_max_2030: ["demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030", "..."]
+    Scenario_CF_max_2050: ["demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050", "CF_Wind_Solar_max"]
+
+    Scenario_CF_min_2021: [ "demand_2021", "base_scenario_capacity_max", "base_scenario_costs_2021", "CF_Wind_Solar_min" ]
+    Scenario_CF_min_2030: [ "demand_2030", "base_scenario_capacity_max", "base_scenario_costs_2030", "..." ]
+    Scenario_CF_min_2050: [ "demand_2050", "base_scenario_capacity_max", "base_scenario_costs_2050", "CF_Wind_Solar_min" ]
+
+# Scenario Subsidies
+    Scenario_Subsidy_25%_2021: ["demand_2021", "base_scenario_capacity_max", ""]
+    Scenario_Subsidy_25%_2030: ["demand_2030", "base_scenario_capacity_max", ""]
+    Scenario_Subsidy_25%_2050: ["demand_2050", "base_scenario_capacity_max", "costs_subsidy_25%_2050"]
+
+##
+# Overrides are the building blocks from which scenarios can be defined
+##
+overrides:
+
+    ### for testing ###
+    one_day:
+        model.subset_time: '2050-03-11' # for testing, day with maximum demand
+
+    no_filler:
+        techs.filler_gen.exists: false
+
+    ### SCENARIO ANALYSIS ###
+
+    1H_resolution:
+        model.time: {function: resample, function_options: {'resolution': '1H'}}
+    2H_resolution:
+        model.time: {function: resample, function_options: {'resolution': '2H'}}
+    3H_resolution:
+        model.time: {function: resample, function_options: {'resolution': '3H'}}
+    4H_resolution:
+        model.time: {function: resample, function_options: {'resolution': '4H'}}
+    6H_resolution:
+        model.time: {function: resample, function_options: {'resolution': '6H'}}
+    8H_resolution:
+        model.time: {function: resample, function_options: {'resolution': '8H'}}
+    leap_year:
+        model.subset_time: ['2040-01-01', '2040-12-31']
+
+    # Demand Profiles for 2021, 2030 and 2050
+    demand_2021_average_day:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba.csv:Aruba
+    demand_2030_average_day:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba_2030.csv:Aruba
+    demand_2050_average_day:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba_2050.csv:Aruba
+
+    demand_2021:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba_weekly_peaks_2021.csv:Aruba
+    demand_2030:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba_weekly_peaks_2030.csv:Aruba
+    demand_2040:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba_weekly_peaks_2040.csv:Aruba
+    demand_2050:
+        locations.Aruba.techs.demand_power.constraints.resource: file=Demand_Profile_Aruba_weekly_peaks_2050.csv:Aruba
+
+    # ------ Scenario A: Base Scenario ------ #
+
+    # Capacity
+    base_scenario_capacity_max:
+        locations.Aruba.techs.otec.constraints.energy_cap_max: 400
+        locations.Aruba.techs.onshore_wind.constraints.energy_cap_max: 89
+        locations.Aruba.techs.offshore_wind.constraints.energy_cap_max: 180
+        locations.Aruba.techs.solar.constraints.energy_cap_max: 389
+        locations.Aruba.techs.solar_floating.constraints.energy_cap_max: 509760
+
+    # Costs
+    base_scenario_costs_2021:
+        techs.otec.costs.monetary.energy_cap: 6549000
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000  #1194000 #1373100
+        techs.solar_floating.costs.monetary.om_annual: 59880 # 4% CAPEX, might be high
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    base_scenario_costs_2030:
+        techs.otec.costs.monetary.energy_cap: 5940000
+        techs.onshore_wind.costs.monetary.energy_cap: 1497000
+        techs.onshore_wind.costs.monetary.om_annual: 43000
+        techs.offshore_wind.costs.monetary.energy_cap: 3779000
+        techs.offshore_wind.costs.monetary.om_annual: 17000
+        techs.offshore_wind.costs.monetary.om_prod: 21.8
+        techs.solar.costs.monetary.energy_cap: 825000
+        techs.solar.costs.monetary.om_annual: 13000
+        techs.solar_floating.costs.monetary.energy_cap: 1034000
+        techs.solar_floating.costs.monetary.om_annual:  31020
+        techs.battery.costs.monetary.storage_cap: 162186
+
+    base_scenario_costs_2040:
+        techs.otec.costs.monetary.energy_cap: 5412000
+        techs.onshore_wind.costs.monetary.energy_cap: 1412000
+        techs.onshore_wind.costs.monetary.om_annual: 39000
+        techs.offshore_wind.costs.monetary.energy_cap: 3524000
+        techs.offshore_wind.costs.monetary.om_annual: 15000
+        techs.offshore_wind.costs.monetary.om_prod: 19.8
+        techs.solar.costs.monetary.energy_cap: 698000
+        techs.solar.costs.monetary.om_annual: 11000
+        techs.solar_floating.costs.monetary.energy_cap: 875000
+        techs.solar_floating.costs.monetary.om_annual: 17500
+        techs.battery.costs.monetary.storage_cap: 125147
+
+    base_scenario_costs_2050:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000 #571000 #700000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
+
+    base_scenario_costs_2030_2:
+        techs.otec.costs.monetary.energy_cap: 5940000
+        techs.onshore_wind.costs.monetary.energy_cap: 1116000
+        techs.onshore_wind.costs.monetary.om_annual: 33000
+        techs.offshore_wind.costs.monetary.energy_cap: 3322000
+        techs.offshore_wind.costs.monetary.om_annual: 93000
+        techs.offshore_wind.costs.monetary.om_prod: 4.5
+        techs.solar.costs.monetary.energy_cap: 519000
+        techs.solar.costs.monetary.om_annual: 5300
+        techs.solar_floating.costs.monetary.energy_cap: 1038000
+        techs.solar_floating.costs.monetary.om_annual: 20760
+        techs.battery.costs.monetary.storage_cap: 298125
+        techs.battery.costs.monetary.om_annual: 2442
+        techs.battery.costs.monetary.om_prod:   1.7
+
+    base_scenario_costs_2040_2:
+        techs.otec.costs.monetary.energy_cap: 5412000
+        techs.onshore_wind.costs.monetary.energy_cap: 1000000
+        techs.onshore_wind.costs.monetary.om_annual: 31000
+        techs.offshore_wind.costs.monetary.energy_cap: 2996000
+        techs.offshore_wind.costs.monetary.om_annual: 84000
+        techs.offshore_wind.costs.monetary.om_prod: 4.1
+        techs.solar.costs.monetary.energy_cap: 446000
+        techs.solar.costs.monetary.om_annual: 5000
+        techs.solar_floating.costs.monetary.energy_cap: 892000
+        techs.solar_floating.costs.monetary.om_annual: 17840
+        techs.battery.costs.monetary.storage_cap: 252955
+        techs.battery.costs.monetary.om_annual: 2076
+        techs.battery.costs.monetary.om_prod: 1.6
+
+    base_scenario_costs_2050_2_ref:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 884000
+        techs.onshore_wind.costs.monetary.om_annual: 28000
+        techs.offshore_wind.costs.monetary.energy_cap: 2670000
+        techs.offshore_wind.costs.monetary.om_annual: 76000
+        techs.offshore_wind.costs.monetary.om_prod: 3.6
+        techs.solar.costs.monetary.energy_cap: 372000
+        techs.solar.costs.monetary.om_annual: 4700
+        techs.solar_floating.costs.monetary.energy_cap: 744000
+        techs.solar_floating.costs.monetary.om_annual: 14880
+        techs.battery.costs.monetary.storage_cap: 207784
+        techs.battery.costs.monetary.om_annual: 1710
+        techs.battery.costs.monetary.om_prod: 1.5
+
+    base_scenario_costs_2050_2_min:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 558000
+        techs.onshore_wind.costs.monetary.om_annual: 23000
+        techs.offshore_wind.costs.monetary.energy_cap: 1442000
+        techs.offshore_wind.costs.monetary.om_annual: 57000
+        techs.offshore_wind.costs.monetary.om_prod: 2.5
+        techs.solar.costs.monetary.energy_cap: 225000
+        techs.solar.costs.monetary.om_annual: 2400
+        techs.solar_floating.costs.monetary.energy_cap: 450000
+        techs.solar_floating.costs.monetary.om_annual: 9000
+        techs.battery.costs.monetary.storage_cap: 153580
+        techs.battery.costs.monetary.om_annual: 582
+        techs.battery.costs.monetary.om_prod: 1.5
+
+    base_scenario_costs_2050_2_max:
+        techs.otec.costs.monetary.energy_cap:
+        techs.onshore_wind.costs.monetary.energy_cap:
+        techs.onshore_wind.costs.monetary.om_annual:
+        techs.offshore_wind.costs.monetary.energy_cap:
+        techs.offshore_wind.costs.monetary.om_annual:
+        techs.offshore_wind.costs.monetary.om_prod:
+        techs.solar.costs.monetary.energy_cap:
+        techs.solar.costs.monetary.om_annual:
+        techs.solar_floating.costs.monetary.energy_cap:
+        techs.solar_floating.costs.monetary.om_annual:
+        techs.battery.costs.monetary.storage_cap:
+        techs.battery.costs.monetary.om_annual:
+        techs.battery.costs.monetary.om_prod:
+
+    base_scenario_CF_2019:
+        locations.Aruba.techs.onshore_wind.constraints.resource: file=Onshore_Wind_Profiles_Aruba_2050.csv:Aruba
+        locations.Aruba.techs.offshore_wind.constraints.resource: file=Onshore_Wind_Profiles_Aruba_2050.csv:Aruba
+        locations.Aruba.techs.solar.constraints.resource: file=Solar_PV_Profiles_Aruba_2050.csv:Aruba
+        locations.Aruba.techs.solar_floating.constraints.resource: file=Solar_PV_Profiles_Aruba_2050.csv:Aruba
+
+    base_scenario_CF_Siemens_2013:
+        locations.Aruba.techs.onshore_wind.constraints.resource: file=Siemens_SWT_Onshore_Aruba.csv:Aruba
+
+# ------ Scenario B: Cost Range Analysis ------ #
+
+    # B1: Solar Cost Range: Low Range Land/Floating Solar Costs
+
+        # B1-1: FPV CAPEX +20%
+    Scenario_B1-1_Costs_2021:
+        techs.otec.costs.monetary.energy_cap: 6549000
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    Scenario_B1-1_Costs_2030:
+        techs.otec.costs.monetary.energy_cap: ...
+        techs.onshore_wind.costs.monetary.energy_cap: 1497000
+        techs.onshore_wind.costs.monetary.om_annual: 43000
+        techs.offshore_wind.costs.monetary.energy_cap: 3779000
+        techs.offshore_wind.costs.monetary.om_annual: 17000
+        techs.offshore_wind.costs.monetary.om_prod: 21.8
+        techs.solar.costs.monetary.energy_cap: ...
+        techs.solar.costs.monetary.om_annual: ...
+        techs.solar_floating.costs.monetary.energy_cap: ...
+        techs.solar_floating.costs.monetary.om_annual: ...
+        techs.battery.costs.monetary.storage_cap: 162186
+
+    Scenario_B1-1_Costs_2050:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 859200 # 20% higher OFPV CAPEX
+        techs.solar_floating.costs.monetary.om_annual: 17184
+        techs.battery.costs.monetary.storage_cap: 88108
+
+        # B1-2: FPV CAPEX -20%
+    Scenario_B1-2_Costs_2021:
+        techs.otec.costs.monetary.energy_cap: 6549000
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap:  1497000  #1194000 #1373100
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    Scenario_B1-2_Costs_2030:
+        techs.otec.costs.monetary.energy_cap: 5940000
+        techs.onshore_wind.costs.monetary.energy_cap: 1497000
+        techs.onshore_wind.costs.monetary.om_annual: 43000
+        techs.offshore_wind.costs.monetary.energy_cap: 3779000
+        techs.offshore_wind.costs.monetary.om_annual: 17000
+        techs.offshore_wind.costs.monetary.om_prod: 21.8
+        techs.solar.costs.monetary.energy_cap: 825000
+        techs.solar.costs.monetary.om_annual: 13000
+        techs.solar_floating.costs.monetary.energy_cap: ... #825000 #948750
+        techs.solar_floating.costs.monetary.om_annual: ...
+        techs.battery.costs.monetary.storage_cap: 162186
+
+    Scenario_B1-2_Costs_2050:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 572800 #571000 #700000
+        techs.solar_floating.costs.monetary.om_annual: 11456
+        techs.battery.costs.monetary.storage_cap: 88108
+
+
+        # B2-1: OTEC Cost Range: Capex 20% more expensive
+    Scenario_B2-1_Costs_2021:
+        techs.otec.costs.monetary.energy_cap:  8001600 #20% higher
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+
+    Scenario_B2-1_Costs_2030:
+        techs.otec.costs.monetary.energy_cap:  7257600 # 20% higher
+        techs.onshore_wind.costs.monetary.energy_cap: 1497000
+        techs.onshore_wind.costs.monetary.om_annual: 43000
+        techs.offshore_wind.costs.monetary.energy_cap: 3779000
+        techs.offshore_wind.costs.monetary.om_annual: 17000
+        techs.offshore_wind.costs.monetary.om_prod: 21.8
+        techs.solar.costs.monetary.energy_cap: 825000
+        techs.solar.costs.monetary.om_annual: 13000
+        techs.solar_floating.costs.monetary.energy_cap: ...
+        techs.solar_floating.costs.monetary.om_annual: ... #outdated
+        techs.battery.costs.monetary.storage_cap: 162186
+
+    Scenario_B2-1_Costs_2050:
+        techs.otec.costs.monetary.energy_cap: 5862000 # 20% higher
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
+
+        # B2-2: OTEC Cost Range: Capex 20% less expensive
+
+    Scenario_B2-2_Costs_2021:
+        techs.otec.costs.monetary.energy_cap:  4838400 # 20% lower
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    Scenario_B2-2_Costs_2030:
+        techs.otec.costs.monetary.energy_cap:  4838400 # 20% lower
+        techs.onshore_wind.costs.monetary.energy_cap: 1497000
+        techs.onshore_wind.costs.monetary.om_annual: 43000
+        techs.offshore_wind.costs.monetary.energy_cap: 3779000
+        techs.offshore_wind.costs.monetary.om_annual: 17000
+        techs.offshore_wind.costs.monetary.om_prod: 21.8
+        techs.solar.costs.monetary.energy_cap: 825000
+        techs.solar.costs.monetary.om_annual: 13000
+        techs.solar_floating.costs.monetary.energy_cap: ...
+        techs.solar_floating.costs.monetary.om_annual: ...
+        techs.battery.costs.monetary.storage_cap: 162186
+
+    Scenario_B2-2_Costs_2050:
+        techs.otec.costs.monetary.energy_cap: 3908000 # 20% lower
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
+
+    # B3: Onshore Wind Cost Range:
+
+        # B3-1: Capex 10% less expensive
+    Scenario_B3_Costs_2030:
+        techs.otec.costs.monetary.energy_cap: 6048000
+        techs.onshore_wind.costs.monetary.energy_cap: 1347300 # 10% lower
+        techs.onshore_wind.costs.monetary.om_annual: 43000
+        techs.offshore_wind.costs.monetary.energy_cap: 3779000
+        techs.offshore_wind.costs.monetary.om_annual: 17000
+        techs.offshore_wind.costs.monetary.om_prod: 21.8
+        techs.solar.costs.monetary.energy_cap: 825000
+        techs.solar.costs.monetary.om_annual: 13000
+        techs.solar_floating.costs.monetary.energy_cap: ...
+        techs.solar_floating.costs.monetary.om_annual: ...
+        techs.battery.costs.monetary.storage_cap: 162186
+
+    Scenario_B3_Costs_2050:
+        techs.otec.costs.monetary.energy_cap: 4974000
+        techs.onshore_wind.costs.monetary.energy_cap: 1193400  # 10% lower
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: ...
+        techs.solar_floating.costs.monetary.om_annual: ...
+        techs.battery.costs.monetary.storage_cap: 88108
+
+    # B4: Battery Costs Range:
+
+        # B4-1: Battery CAPEX +20%
+    Scenario_B4-1_Costs_Battery_Capex_+20%_2021:
+
+    Scenario_B4-1_Costs_Battery_Capex_+20%_2030:
+
+    Scenario_B4-1_Costs_Battery_Capex_+20%_2050:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual: 14950
+        techs.battery.costs.monetary.storage_cap: 105730
+
+        # B4-2: Battery CAPEX -20%
+    Scenario_B4-1_Costs_Battery_Capex_-20%_2021:
+        techs.otec.costs.monetary.energy_cap: 6549000
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 240160 # -20% of the Capex
+
+    Scenario_B4-1_Costs_Battery_Capex_-20%_2030:
+
+    Scenario_B4-1_Costs_Battery_Capex_-20%_2050:
+        techs.otec.costs.monetary.energy_cap: 4885000
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual:  14320
+        techs.battery.costs.monetary.storage_cap: 70486
+
+# ------ Scenario: OTEC Plant size ------ #
+
+    # 10MW OTEC
+
+    costs_OTEC_10MW_2021:
+        techs.otec.costs.monetary.energy_cap: 14059700 # Costs 10MW OTEC pyOTEC Aruba (loc.15)
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    costs_OTEC_10MW_2050:
+        techs.otec.costs.monetary.energy_cap: 10488000 # Costs 10MW OTEC pyOTEC Aruba (loc 15) scaled to 2050
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
+
+    # 40MW OTEC
+
+    costs_OTEC_40MW_2021:
+        techs.otec.costs.monetary.energy_cap:  8979700 # Costs 40MW OTEC pyOTEC Aruba 2021 (loc.15)
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    costs_OTEC_40_2050:
+        techs.otec.costs.monetary.energy_cap: 6698000 # Costs 40 MW OTEC pyOTEC Aruba 2050 (loc.15)
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
+
+    # 80MW OTEC
+
+    costs_OTEC_80MW_2021:
+        techs.otec.costs.monetary.energy_cap:  7472338 # Costs 80MW OTEC pyOTEC Aruba 2021 (loc.15)
+        techs.onshore_wind.costs.monetary.energy_cap: 1660000
+        techs.onshore_wind.costs.monetary.om_annual: 49000
+        techs.offshore_wind.costs.monetary.energy_cap: 4325000
+        techs.offshore_wind.costs.monetary.om_annual: 20000
+        techs.offshore_wind.costs.monetary.om_prod: 25
+        techs.solar.costs.monetary.energy_cap: 1194000
+        techs.solar.costs.monetary.om_annual: 17000
+        techs.solar_floating.costs.monetary.energy_cap: 1497000
+        techs.solar_floating.costs.monetary.om_annual: 59880
+        techs.battery.costs.monetary.storage_cap: 300200
+
+    costs_OTEC_80MW_2050:
+        techs.otec.costs.monetary.energy_cap:  5574000 # Costs 80MW OTEC pyOTEC Aruba 2050 (loc.15)
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
+
+
+# ------ Scenario C: Capacity Limitation ------ #
+
+    # C1: Capacity Limitation OTEC: Capacity set to 0
+
+    Scenario_C1_zero_OTEC_capacity_max:
+        locations.Aruba.techs.otec.constraints.energy_cap_max: 0 # set to zero (0)
+        locations.Aruba.techs.onshore_wind.constraints.energy_cap_max: 89
+        locations.Aruba.techs.offshore_wind.constraints.energy_cap_max: 180
+        locations.Aruba.techs.solar.constraints.energy_cap_max: 389
+        locations.Aruba.techs.solar_floating.constraints.energy_cap_max: 509760
+
+    # C2: Land availability 5%
+
+    capacity_max_C2_Land_5%:
+        locations.Aruba.techs.otec.constraints.energy_cap_max: 400
+        locations.Aruba.techs.onshore_wind.constraints.energy_cap_max: 45
+        locations.Aruba.techs.offshore_wind.constraints.energy_cap_max: 180
+        locations.Aruba.techs.solar.constraints.energy_cap_max: 195
+        locations.Aruba.techs.solar_floating.constraints.energy_cap_max: 509760
+
+    # C3: Land availability 15%
+
+    capacity_max_C2_Land_15%:
+        locations.Aruba.techs.otec.constraints.energy_cap_max: 400
+        locations.Aruba.techs.onshore_wind.constraints.energy_cap_max: 134
+        locations.Aruba.techs.offshore_wind.constraints.energy_cap_max: 180
+        locations.Aruba.techs.solar.constraints.energy_cap_max: 584
+        locations.Aruba.techs.solar_floating.constraints.energy_cap_max: 509760
+
+# ------ Scenario D: Fossil Fuels Included ------ #
+    Scenario_D_fossil_fuel_capacity_2021:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 194
+        locations.Aruba.techs.oc_gas.constraints.energy_cap_max: 22
+
+    Scenario_D_fossil_fuel_capacity_2030:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 128 #(2/3)*194
+        locations.Aruba.techs.cc_gas.constraints.energy_cap_max: 15 #(2/3)*194
+
+    Scenario_D_fossil_fuel_capacity_2050:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 0 #(0/3)*194
+        locations.Aruba.techs.cc_gas.constraints.energy_cap_max: 0 #(0/3)*194
+
+    # Max 20% Fossil Fuels
+    capacity_max_20%_fossil_fuels_2050:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 0
+        locations.Aruba.techs.oc_gas.constraints.energy_cap_max: 41
+
+    # No restrictions on Fossil Fuels
+    Scenario_D0_fossil_fuel_capacity_2021:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 500
+        locations.Aruba.techs.cc_gas.constraints.energy_cap_max: 500
+
+    Scenario_D0_fossil_fuel_capacity_2030:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 500 #(2/3)*194
+        locations.Aruba.techs.cc_gas.constraints.energy_cap_max: 500 #(2/3)*194
+
+    Scenario_D0_fossil_fuel_capacity_2050:
+        locations.Aruba.techs.diesel.constraints.energy_cap_max: 500 #(0/3)*194
+        locations.Aruba.techs.cc_gas.constraints.energy_cap_max: 500 #(0/3)*194
+
+# ------ Scenario E: Average Capacity Factor ------ #
+
+    Scenario_E_CF:
+        locations.Aruba.techs.onshore_wind.constraints.resource: file=Onshore_Wind_Profiles_Aruba_Average_2009_2023.csv:Aruba
+        locations.Aruba.techs.offshore_wind.constraints.resource: file=Onshore_Wind_Profiles_Aruba_Average_2009_2023.csv:Aruba
+        locations.Aruba.techs.solar.constraints.resource: file=Solar_PV_Profiles_Aruba_Average_2009_2023.csv:Aruba
+        locations.Aruba.techs.solar_floating.constraints.resource: file=Solar_PV_Profiles_Aruba_Average_2009_2023.csv:Aruba
+
+# ------ Scenario: Solar & Wind CF ------ #
+
+    CF_Wind_Solar_max:
+        locations.Aruba.techs.onshore_wind.constraints.resource: file=Onshore_Wind_Profiles_Aruba_max.csv:Aruba
+        locations.Aruba.techs.offshore_wind.constraints.resource: file=Offshore_Wind_Profiles_Aruba_max.csv:Aruba
+        locations.Aruba.techs.solar.constraints.resource: file=Solar_PV_Profiles_Aruba_max.csv:Aruba
+        locations.Aruba.techs.solar_floating.constraints.resource: file=Solar_PV_Profiles_Aruba_max.csv:Aruba
+
+    CF_Wind_Solar_min:
+        locations.Aruba.techs.onshore_wind.constraints.resource: file=Onshore_Wind_Profiles_Aruba_min.csv:Aruba
+        locations.Aruba.techs.offshore_wind.constraints.resource: file=Offshore_Wind_Profiles_Aruba_min.csv:Aruba
+        locations.Aruba.techs.solar.constraints.resource: file=Solar_PV_Profiles_Aruba_min.csv:Aruba
+        locations.Aruba.techs.solar_floating.constraints.resource: file=Solar_PV_Profiles_Aruba_min.csv:Aruba
+
+# ------ Scenario: Subsidies ------ #
+
+    costs_subsidy_25%_2050:
+        techs.otec.costs.monetary.energy_cap: 3663750
+        techs.onshore_wind.costs.monetary.energy_cap: 1326000
+        techs.onshore_wind.costs.monetary.om_annual: 35000
+        techs.offshore_wind.costs.monetary.energy_cap: 3269000
+        techs.offshore_wind.costs.monetary.om_annual: 13000
+        techs.offshore_wind.costs.monetary.om_prod: 17.7
+        techs.solar.costs.monetary.energy_cap: 571000
+        techs.solar.costs.monetary.om_annual: 9000
+        techs.solar_floating.costs.monetary.energy_cap: 716000 #571000 #700000
+        techs.solar_floating.costs.monetary.om_annual: 14320
+        techs.battery.costs.monetary.storage_cap: 88108
